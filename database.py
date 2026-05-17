@@ -111,4 +111,5 @@ def clear_data():
         raise sqlite3.Error(f"Delete Error: {e}")
 
 
-initialize_database()
+if __name__ == "__main__":
+    initialize_database()
