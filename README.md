@@ -29,7 +29,9 @@ BizInsight AI is an AI-powered customer feedback analytics platform that helps b
 
 </div>
 
-## 🛠 Tech Stack
+ <h1 align="center">Tech Stack </h1>
+ <div align="center">
+   
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 <br>
@@ -47,7 +49,8 @@ BizInsight AI is an AI-powered customer feedback analytics platform that helps b
 
 ![DeepSeek AI](https://img.shields.io/badge/DeepSeek_AI-000000?style=for-the-badge)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-
+<div align="center">
+  
 <h1 align="center"> Project Structure</h1>
 
 <div align="center">
@@ -63,21 +66,55 @@ bizinsight-ai/
 ├── .gitignore
 └── README.md
 </pre>
+ <h1 align="center"> Installation & Setup</b></h1>
+ 
+Follow these steps to set up the project locally on your machine.
 
-<h1 align="center">How to Run Locally</h1>
-<div align="center">
+### 1. Clone the Repository
+Open your terminal and run:
+```bash
+git clone https://github.com/Prateekiiitg56/BizInsight-AI.git
+cd BizInsight-AI
+```
 
-<p style="font-size:18px;"><b>Install dependencies</b></p>
+### 2. Set Up a Virtual Environment
+Choose **one** of the options below to isolate your project dependencies.
 
-<pre style="font-size:16px; padding:10px; border-radius:8px;">
+#### Option A: Using Standard Python (venv)
+* **Create the environment:**
+  ```bash
+  python -m venv venv
+  ```
+* **Activate the environment:**
+  * **Windows:**
+    ```bash
+    venv\Scripts\activate
+    ```
+  * **macOS / Linux:**
+    ```bash
+    source venv/bin/activate
+    ```
+
+#### Option B: Using Anaconda (conda)
+* **Create and activate the environment:**
+  ```bash
+  conda create --name BizInsight-AI-env python=3.10 -y
+  conda activate BizInsight-AI-env
+  ```
+
+### 3. Install Dependencies
+Once your virtual environment is active, install the required packages:
+```bash
 pip install -r requirements.txt
-</pre>
+```
 
-<p style="font-size:18px;"><b>Start the application</b></p>
-
-<pre style="font-size:16px; padding:10px; border-radius:8px;">
+### 4. Run the Application
+Start the Streamlit dashboard:
+```bash
 streamlit run app.py
-</pre>
+```
+
+---
 
 </div>
 
@@ -178,93 +215,3 @@ Your CSV file must contain a column named <b>review</b>.
 </div>
 ---
 
-## 📥 Installation & Setup
-
-Follow these steps to set up the project locally on your machine.
-
-### 1. Clone the Repository
-Open your terminal and run:
-```bash
-git clone https://github.com/Prateekiiitg56/BizInsight-AI.git
-cd BizInsight-AI
-```
-
-### 2. Set Up a Virtual Environment
-Choose **one** of the options below to isolate your project dependencies.
-
-#### Option A: Using Standard Python (venv)
-* **Create the environment:**
-  ```bash
-  python -m venv venv
-  ```
-* **Activate the environment:**
-  * **Windows:**
-    ```bash
-    venv\Scripts\activate
-    ```
-  * **macOS / Linux:**
-    ```bash
-    source venv/bin/activate
-    ```
-
-#### Option B: Using Anaconda (conda)
-* **Create and activate the environment:**
-  ```bash
-  conda create --name BizInsight-AI-env python=3.10 -y
-  conda activate BizInsight-AI-env
-  ```
-
-### 3. Install Dependencies
-Once your virtual environment is active, install the required packages:
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Run the Application
-Start the Streamlit dashboard:
-```bash
-streamlit run app.py
-```
-
----
-
-## 📄 CSV Format
-
-Your CSV file must contain a column named `review`.
-
----
-
-## 📈 Example Use Cases
-
-- E-commerce customer experience analysis  
-- Service quality monitoring  
-- Product feedback insights  
-- Business performance improvement
-  
----
-
-## 🏆 Why BizInsight AI?
-
-Manually analyzing customer feedback is time-consuming and error-prone.  
-BizInsight AI converts raw reviews into actionable business intelligence using AI.
-
----
-
-## 📌 Future Enhancements
-
-- Multi-business login system  
-- Automated report generation (PDF)  
-- Smart complaint clustering  
-- Trend alert system  
-- Website integration chatbot  
-
----
-
-## 👨‍💻 Author
-
-Built by **Prateek Singh**  
-BTech Student | AI & Software Development Enthusiast
-
----
-
-⭐ If you like this project, consider giving it a star!
