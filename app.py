@@ -1,4 +1,6 @@
 import os
+import tempfile
+from pdf_generator import create_pdf
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -109,7 +111,35 @@ if data:
         c3.metric("Negative", negative)
 
         st.markdown("---")
+        # Create chart first
+        fig, ax = plt.subplots(figsize=(4,4))
 
+        ax.bar(
+            ["Positive", "Negative"],
+            [positive, negative]
+        )
+
+        plt.tight_layout()
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
+            chart_path = tmpfile.name
+
+            fig.savefig(chart_path)
+        if st.button("Generate PDF Report"):
+
+            # THEN create PDF
+            pdf_path = create_pdf(len(df), positive, negative, chart_path)
+
+            # Download button
+            with open(pdf_path, "rb") as pdf_file:
+
+                st.download_button(
+                label="Download Report",
+                data=pdf_file,
+                file_name="bizinsight_report.pdf",
+                mime="application/pdf"
+            )
+
+            # Dashboard visuals
         col1, col2 = st.columns([2,1])
 
         with col1:
@@ -117,13 +147,9 @@ if data:
             st.line_chart(trend)
 
         with col2:
-            fig, ax = plt.subplots()
-            ax.bar(["Positive", "Negative"], [positive, negative])
             st.pyplot(fig)
             plt.close(fig)  # Fix: prevents matplotlib memory leak
-
-
-        st.markdown("---")
+            st.markdown("---")
 
         st.subheader("Top Customer Issues")
         st.write(list(keywords))
