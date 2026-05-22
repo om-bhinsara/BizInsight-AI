@@ -1,6 +1,6 @@
 import os
 import tempfile
-#from pdf_generator import create_pdf
+from pdf_generator import create_pdf
 from dotenv import load_dotenv
 
 load_dotenv()
