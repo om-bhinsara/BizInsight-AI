@@ -48,7 +48,7 @@ git fetch upstream
 # Using venv
 python -m venv venv
 source venv/bin/activate        # macOS/Linux
-venv\Scripts\activate           # Windows
+venv\Scripts\activate           # Windows (CMD) or .\venv\Scripts\Activate.ps1 (PowerShell)
 
 # OR using conda
 conda create --name bizinsight-env python=3.10 -y
