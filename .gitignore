@@ -18,3 +18,4 @@ Thumbs.db
 venv/
 
 models/finetuned_complaint_model_final/
+.streamlit/secrets.toml

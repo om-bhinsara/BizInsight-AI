@@ -16,6 +16,7 @@ from clustering.run_clustering import run_pipeline
 import re
 from clustering.vectorize import load_model
 import matplotlib.pyplot as plt
+from sentiment import analyze
 
 # ---------- Chimera AI Client ----------
 
@@ -136,6 +137,31 @@ with tabs[2]:
 
     st.subheader("📂 Upload Customer Reviews")
 
+    # ── Manual input ──────────────────────────────────────────────────────────
+    st.markdown("#### ✍️ Try a Single Review")
+    manual_review = st.text_area("Type a review to analyze", placeholder="e.g. The product broke after two days, very disappointed.")
+
+    if st.button("Analyze Review"):
+        if manual_review.strip():
+            with st.spinner("Analyzing..."):
+                result = analyze(manual_review.strip())
+            label = result["label"]
+            score = result["score"]
+
+            color = {"Positive": "🟢", "Neutral": "🟡", "Negative": "🔴"}.get(label, "⚪")
+            st.markdown(f"**Sentiment:** {color} {label}  &nbsp;&nbsp; **Score:** `{score:+.4f}`")
+            st.caption(f"VADER: `{result['vader_score']:+.4f}`  |  BERT: `{result['bert_score']:+.4f}`")
+
+            if st.checkbox("Save this review to database"):
+                insert_feedback(manual_review.strip(), score)
+                st.success("Saved!")
+        else:
+            st.warning("Please type a review first.")
+
+    st.markdown("---")
+
+    # ── CSV upload ────────────────────────────────────────────────────────────
+    uploaded_file = st.file_uploader("Upload CSV with review column", type="csv")
     uploaded_file = st.file_uploader(
         "Upload CSV with review column",
         type="csv"
