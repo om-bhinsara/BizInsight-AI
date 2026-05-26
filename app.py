@@ -8,7 +8,12 @@ st.set_page_config(page_title="BizInsight AI", layout="wide")
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import CountVectorizer
-from database import insert_feedback, fetch_feedback, clear_data
+from database import insert_feedback, fetch_feedback, clear_data, initialize_database
+@st.cache_resource
+def init_db():
+    initialize_database()
+
+init_db()
 
 from openai import OpenAI
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
